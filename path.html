@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>D3</title>
+</head>
+
+<body>
+    <script src="d3.js"></script>
+    <script>
+
+        var canvas = d3.select("body")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 500);
+
+        var data = [
+            {x: 10, y: 10},
+            {x: 100, y: 200},
+            {x: 500, y: 300}
+        ];
+
+        var line = d3.line()
+            .x(function (d) { return d.x;  })
+            .y(function (d) { return d.y;  });
+
+        canvas.selectAll("path")
+            .data([data])
+            .enter()
+                .append("path")
+                .attr("d", line)
+                .attr("stroke", "red")
+                .attr("fill", "pink")
+                .attr("stroke-width", 10);
+
+
+
+    </script>
+</body>
+
+</html>
